@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,25 +21,36 @@ import com.ebookfrenzy.myapplication.R;
 
 public class DishesFragment extends Fragment {
 
-    private DishesViewModel dishesViewModel;
+    Button btn_addDish, btn_viewAllDishes;
+    EditText et_dishName, et_dishDescription;
+    Switch sw_isFavorite;
+    ListView lv_dishList;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        dishesViewModel = ViewModelProviders.of(this).get(DishesViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dishes, container, false);
-        final TextView textView = root.findViewById(R.id.et_dishName);
+
+        btn_addDish = root.findViewById(R.id.btn_AddDish);
+        btn_viewAllDishes = root.findViewById(R.id.btn_viewAllDishes);
+        et_dishName = root.findViewById(R.id.et_dishName);
+        et_dishDescription = root.findViewById((R.id.et_dishDescription));
+        sw_isFavorite = root.findViewById(R.id.sw_isFavorite);
+        lv_dishList = root.findViewById(R.id.lv_dishList);
+
+        btn_addDish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dish dish = new Dish(-1, et_dishName.getText().toString(), et_dishDescription.getText().toString(), sw_isFavorite.isChecked());
+                Toast.makeText(getContext(), dish.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btn_viewAllDishes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "View All Dishes Clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         return root;
     }
 }
-
-//    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        dishesViewModel = ViewModelProviders.of(this).get(DishesViewModel.class);
-//        View root = inflater.inflate(R.layout.fragment_dishes, container, false);
-//        final TextView textView = root.findViewById(R.id.text_dishes);
-//        dishesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {textView.setText(s);
-//            }
-//        });
-//        return root;
-//    }

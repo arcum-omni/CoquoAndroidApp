@@ -26,63 +26,12 @@ import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
-    // references to buttons and other controls on the layout
-    Button btn_addIngredients, btn_viewAllIngredients, btn_addDish, btn_viewAllDishes;
-    EditText et_ingredientName, et_ingredientDescription, et_dishName, et_dishDescription;
-    Switch sw_inPantry, sw_isFavorite;
-    ListView lv_ingredientList, lv_dishList;
-
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        btn_addIngredients = findViewById(R.id.btn_AddIngredients);
-        btn_viewAllIngredients = findViewById(R.id.btn_viewAllIngredients);
-        et_ingredientName = findViewById(R.id.et_ingredientName);
-        et_ingredientDescription = findViewById(R.id.et_ingredientDescription);
-        sw_inPantry = findViewById(R.id.sw_inPantry);
-        lv_ingredientList = findViewById(R.id.lv_ingredientList);
-
-        btn_addDish = findViewById(R.id.btn_AddDish);
-        btn_viewAllDishes = findViewById(R.id.btn_viewAllDishes);
-        et_dishName = findViewById(R.id.et_dishName);
-        et_dishDescription = findViewById((R.id.et_dishDescription));
-        sw_isFavorite = findViewById(R.id.sw_isFavorite);
-        lv_dishList = findViewById(R.id.lv_dishList);
-
-
-//        btn_addIngredients.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Ingredient ingredient = new Ingredient(-1, et_ingredientName.getText().toString(), et_ingredientDescription.getText().toString(), sw_inPantry.isChecked());
-//                Toast.makeText(MainActivity.this, "Ingredient Added", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        btn_viewAllIngredients.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(MainActivity.this, "View All Ingredients", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        btn_addDish.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Dish dish = new Dish(-1, et_dishName.getText().toString(), et_dishDescription.getText().toString(), sw_isFavorite.isChecked());
-//                Toast.makeText(MainActivity.this, "Dish Added", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        btn_viewAllDishes.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(MainActivity.this, "View All Dishes", Toast.LENGTH_SHORT).show();
-//            }
-//        });
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

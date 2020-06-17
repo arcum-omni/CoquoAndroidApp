@@ -31,6 +31,8 @@ public class Dish {
         return DishDescription;
     }
 
+    public boolean isFavorite() { return isFavorite; }
+
     // Setters
 
     public void setDishID(int dishID) {
@@ -45,13 +47,17 @@ public class Dish {
         DishDescription = dishDescription;
     }
 
+    public void setFavorite(boolean isMyFavorite) { isFavorite = isMyFavorite; }
+
     // To String Method
+
     @Override
     public String toString() {
         return "Dish{" +
                 "DishID=" + DishID +
                 ", DishName='" + DishName + '\'' +
                 ", DishDescription='" + DishDescription + '\'' +
+                ", isFavorite=" + isFavorite +
                 '}';
     }
 }
