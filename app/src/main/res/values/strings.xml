@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Coquó Culinary</string>
+    <string name="nav_header_subtitle">Mobile Pantry Manager</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Ingredients</string>
+
+    <string name="menu_home">Coquó</string>
+    <string name="menu_gallery">Ingredients</string>
+    <string name="menu_slideshow">Dishes</string>
+    <string name="IngredientName">Ingredient Name</string>
+    <string name="IngredientDescription">Ingredient Description</string>
+    <string name="InPantry">In Pantry</string>
+    <string name="ViewAllIngredients">View All</string>
+    <string name="AddIngredient">Add Ingredient</string>
+    <string name="dishName">Dish Name</string>
+    <string name="dishDescription">Dish Description</string>
+    <string name="isFavorite">Is Favorite</string>
+    <string name="viewAllDishes">View All</string>
+    <string name="addDish">Add Dish</string>
+</resources>
