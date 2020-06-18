@@ -20,7 +20,7 @@ import com.ebookfrenzy.myapplication.DatabaseHelper;
 import com.ebookfrenzy.myapplication.R;
 
 public class IngredientsFragment extends Fragment {
-    Button btn_addIngredients, btn_viewAllIngredients;
+    Button btn_addIngredient, btn_deleteIngredient;
     EditText et_ingredientName, et_ingredientDescription;
     Switch sw_inPantry;
     ListView lv_ingredientList;
@@ -32,8 +32,8 @@ public class IngredientsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_ingredients, container, false);
-        btn_addIngredients = root.findViewById(R.id.btn_AddIngredients);
-        btn_viewAllIngredients = root.findViewById(R.id.btn_viewAllIngredients);
+        btn_addIngredient = root.findViewById(R.id.btn_AddIngredient);
+        btn_deleteIngredient = root.findViewById(R.id.btn_deleteIngredient);
         et_ingredientName = root.findViewById(R.id.et_ingredientName);
         et_ingredientDescription = root.findViewById(R.id.et_ingredientDescription);
         sw_inPantry = root.findViewById(R.id.sw_inPantry);
@@ -43,7 +43,7 @@ public class IngredientsFragment extends Fragment {
 
         PopulateIngredientsListView(databaseHelper);
 
-        btn_addIngredients.setOnClickListener(new View.OnClickListener() {
+        btn_addIngredient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Ingredient ingredient;
@@ -71,24 +71,32 @@ public class IngredientsFragment extends Fragment {
             }
         });
 
-        btn_viewAllIngredients.setOnClickListener(new View.OnClickListener() {
+        // Clear text entries
+        btn_deleteIngredient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 databaseHelper = new DatabaseHelper(getContext());
-
-                PopulateIngredientsListView(databaseHelper);
+                //databaseHelper.deleteIngredient();
+                //PopulateIngredientsListView(databaseHelper);
 
                 //Toast.makeText(getContext(), allIngredients.toString(), Toast.LENGTH_SHORT).show();
+                et_ingredientName.setText("");
+                et_ingredientDescription.setText("");
+                sw_inPantry.setChecked(false);
             }
         });
 
+        // Load from LV to text entries
         lv_ingredientList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Ingredient clickedIngredient = (Ingredient)parent.getItemAtPosition(position);
                 databaseHelper.deleteIngredient(clickedIngredient);
+                et_ingredientName.setText(clickedIngredient.getIngredientName());
+                et_ingredientDescription.setText(clickedIngredient.getIngredientDescription());
+                sw_inPantry.setChecked(clickedIngredient.isInPantry());
                 PopulateIngredientsListView(databaseHelper);
-                Toast.makeText(getContext(), clickedIngredient.getIngredientName() + "Successfully Deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), clickedIngredient.getIngredientName() + " Successfully Loaded", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -48,23 +48,23 @@
         app:layout_constraintTop_toBottomOf="@+id/et_ingredientDescription" />
 
     <Button
-        android:id="@+id/btn_viewAllIngredients"
+        android:id="@+id/btn_deleteIngredient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/ViewAllIngredients"
-        app:layout_constraintEnd_toStartOf="@+id/btn_AddIngredients"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_AddIngredient"
         app:layout_constraintTop_toBottomOf="@+id/sw_inPantry" />
 
     <Button
-        android:id="@+id/btn_AddIngredients"
+        android:id="@+id/btn_AddIngredient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/AddIngredient"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn_viewAllIngredients"
-        app:layout_constraintTop_toTopOf="@+id/btn_viewAllIngredients" />
+        app:layout_constraintEnd_toStartOf="@+id/btn_deleteIngredient"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_deleteIngredient" />
 
     <ListView
         android:id="@+id/lv_ingredientList"
@@ -78,7 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_viewAllIngredients"
+        app:layout_constraintTop_toBottomOf="@+id/btn_deleteIngredient"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
