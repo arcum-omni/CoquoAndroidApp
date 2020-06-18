@@ -168,6 +168,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /*
+     * find ingredient in DB, edit it, and return true
+     * if ingredient is not found, return false
+     * */
+    public boolean editIngredient(Ingredient ingredient){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String queryString = "select * from " + INGREDIENT_TABLE + " where " + column_INGREDIENT_ID + " = " + ingredient.getIngredientID();
+
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if(cursor.moveToFirst()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+    /*
      * find dish in DB, delete it, and return true
      * if dish is not found, return false
      * */

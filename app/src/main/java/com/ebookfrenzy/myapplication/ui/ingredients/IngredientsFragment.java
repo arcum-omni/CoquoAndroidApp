@@ -65,14 +65,28 @@ public class IngredientsFragment extends Fragment {
                 }
 
                 PopulateIngredientsListView(databaseHelper);
+                et_ingredientName.setText("");
+                et_ingredientDescription.setText("");
+                sw_inPantry.setChecked(false);
             }
         });
+
+//        btn_viewAllIngredients.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                databaseHelper = new DatabaseHelper(getContext());
+//
+//                PopulateIngredientsListView(databaseHelper);
+//
+//                //Toast.makeText(getContext(), allIngredients.toString(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         btn_viewAllIngredients.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 databaseHelper = new DatabaseHelper(getContext());
-
+                //databaseHelper.deleteIngredient();
                 PopulateIngredientsListView(databaseHelper);
 
                 //Toast.makeText(getContext(), allIngredients.toString(), Toast.LENGTH_SHORT).show();
@@ -85,9 +99,21 @@ public class IngredientsFragment extends Fragment {
                 Ingredient clickedIngredient = (Ingredient)parent.getItemAtPosition(position);
                 databaseHelper.deleteIngredient(clickedIngredient);
                 PopulateIngredientsListView(databaseHelper);
-                Toast.makeText(getContext(), clickedIngredient.getIngredientName() + "Successfully Deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), clickedIngredient.getIngredientName() + " Successfully Deleted", Toast.LENGTH_SHORT).show();
             }
         });
+
+//        lv_ingredientList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Ingredient clickedIngredient = (Ingredient)parent.getItemAtPosition(position);
+//                databaseHelper.deleteIngredient(clickedIngredient);
+//                et_ingredientName.setText(clickedIngredient.getIngredientName());
+//                et_ingredientDescription.setText(clickedIngredient.getIngredientDescription());
+//                //PopulateIngredientsListView(databaseHelper);
+//                Toast.makeText(getContext(), clickedIngredient.getIngredientName() + "Successfully Deleted", Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
         return root;
     }
