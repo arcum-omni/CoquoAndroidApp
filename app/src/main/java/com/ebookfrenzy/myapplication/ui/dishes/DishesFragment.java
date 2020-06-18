@@ -10,21 +10,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.ebookfrenzy.myapplication.DatabaseHelper;
 import com.ebookfrenzy.myapplication.R;
-import com.ebookfrenzy.myapplication.ui.ingredients.Ingredient;
 
 public class DishesFragment extends Fragment {
-    Button btn_addDish, btn_viewAllDishes;
+    Button btn_addDish, btn_deleteDish;
     EditText et_dishName, et_dishDescription;
     Switch sw_isFavorite;
     ListView lv_dishList;
@@ -37,7 +33,7 @@ public class DishesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_dishes, container, false);
         btn_addDish = root.findViewById(R.id.btn_AddDish);
-        btn_viewAllDishes = root.findViewById(R.id.btn_viewAllDishes);
+        btn_deleteDish = root.findViewById(R.id.btn_deleteDish);
         et_dishName = root.findViewById(R.id.et_dishName);
         et_dishDescription = root.findViewById((R.id.et_dishDescription));
         sw_isFavorite = root.findViewById(R.id.sw_isFavorite);
@@ -69,10 +65,13 @@ public class DishesFragment extends Fragment {
                 }
 
                 PopulateDishesListView(databaseHelper);
+                et_dishName.setText("");
+                et_dishDescription.setText("");
+                sw_isFavorite.setChecked(false);
             }
         });
 
-        btn_viewAllDishes.setOnClickListener(new View.OnClickListener() {
+        btn_deleteDish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 databaseHelper = new DatabaseHelper(getContext());
@@ -80,6 +79,9 @@ public class DishesFragment extends Fragment {
                 PopulateDishesListView(databaseHelper);
 
                 //Toast.makeText(getContext(), "View All Dishes Clicked", Toast.LENGTH_SHORT).show();
+                et_dishName.setText("");
+                et_dishDescription.setText("");
+                sw_isFavorite.setChecked(false);
             }
         });
 
@@ -88,8 +90,11 @@ public class DishesFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Dish clickedDish = (Dish)parent.getItemAtPosition(position);
                 databaseHelper.deleteDish(clickedDish);
+                et_dishName.setText(clickedDish.getDishName());
+                et_dishDescription.setText(clickedDish.getDishDescription());
+                sw_isFavorite.setChecked(clickedDish.isFavorite());
                 PopulateDishesListView(databaseHelper);
-                Toast.makeText(getContext(), clickedDish.getDishName() + "Successfully Deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), clickedDish.getDishName() + " Successfully Loaded", Toast.LENGTH_SHORT).show();
             }
         });
 

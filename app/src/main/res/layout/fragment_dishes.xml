@@ -46,23 +46,23 @@
         app:layout_constraintTop_toBottomOf="@+id/et_dishDescription" />
 
     <Button
-        android:id="@+id/btn_viewAllDishes"
+        android:id="@+id/btn_deleteDish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/viewAllDishes"
-        app:layout_constraintEnd_toStartOf="@+id/btn_AddDish"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sw_isFavorite" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sw_isFavorite"
+        app:layout_constraintStart_toEndOf="@id/btn_AddDish"/>
 
     <Button
         android:id="@+id/btn_AddDish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/addDish"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btn_viewAllDishes"
-        app:layout_constraintStart_toEndOf="@id/btn_viewAllDishes"/>
+        app:layout_constraintEnd_toStartOf="@+id/btn_deleteDish"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_deleteDish" />
 
     <ListView
         android:id="@+id/lv_dishList"
@@ -75,5 +75,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_viewAllDishes" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_deleteDish" />
 </androidx.constraintlayout.widget.ConstraintLayout>
