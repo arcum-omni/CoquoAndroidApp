@@ -25,7 +25,6 @@ public class IngredientsFragment extends Fragment {
     Switch sw_inPantry;
     ListView lv_ingredientList;
     ArrayAdapter ingredientArrayAdapter;
-    ArrayAdapter dishArrayAdapter;
 
     DatabaseHelper databaseHelper;
 
@@ -47,7 +46,6 @@ public class IngredientsFragment extends Fragment {
         btn_addIngredients.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Ingredient ingredient;
                 try {
                     ingredient = new Ingredient(-1, et_ingredientName.getText().toString(), et_ingredientDescription.getText().toString(), sw_inPantry.isChecked());

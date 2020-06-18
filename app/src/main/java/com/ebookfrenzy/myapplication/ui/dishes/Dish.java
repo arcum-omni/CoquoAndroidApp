@@ -53,11 +53,16 @@ public class Dish {
 
     @Override
     public String toString() {
-        return "Dish{" +
-                "DishID=" + DishID +
-                ", DishName='" + DishName + '\'' +
-                ", DishDescription='" + DishDescription + '\'' +
-                ", isFavorite=" + isFavorite +
-                '}';
+        String myFav = "";
+        if(isFavorite){
+            myFav = " (One of my favorites)";
+        }
+        return DishName + ", " + DishDescription + myFav;
+//        return "Dish{" +
+//                "DishID=" + DishID +
+//                ", DishName='" + DishName + '\'' +
+//                ", DishDescription='" + DishDescription + '\'' +
+//                ", isFavorite=" + isFavorite +
+//                '}';
     }
 }

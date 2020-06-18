@@ -66,40 +66,17 @@ public class Ingredient {
     // To String Method
     @Override
     public String toString() {
-        return "Ingredient{" +
-                "IngredientID=" + IngredientID +
-                ", IngredientName='" + IngredientName + '\'' +
-                ", IngredientDescription='" + IngredientDescription + '\'' +
-                ", inPantry=" + inPantry +
-                '}';
+        String inStock = "";
+        if(!inPantry){
+            inStock = " (Need to Buy)";
+        }
+        return IngredientName + ", " + IngredientDescription + inStock;
+//        return "Ingredient{" +
+//                "IngredientID=" + IngredientID +
+//                ", IngredientName='" + IngredientName + '\'' +
+//                ", IngredientDescription='" + IngredientDescription + '\'' +
+//                ", inPantry=" + inPantry +
+//                '}';
     }
-
-    //    @PrimaryKey(autoGenerate = true)
-//    @NonNull
-//    @ColumnInfo(name = "ingredientId")
-//    public int getID(){
-//        return IngredientID;
-//    }
-//
-//    @ColumnInfo(name = "ingredientName")
-//    public String getName(){
-//        return IngredientName;
-//    }
-//
-//    public String getDescription(){
-//        return IngredientDescription;
-//    }
-//
-//    public void setID(@NonNull int id){
-//        IngredientID = id;
-//    }
-//
-//    public void setName(String name){
-//        IngredientName = name;
-//    }
-//
-//    public void setDescription (String description){
-//        IngredientName = description;
-//    }
 }
 
