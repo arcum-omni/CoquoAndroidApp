@@ -69,6 +69,9 @@ public class DishesFragment extends Fragment {
                 }
 
                 PopulateDishesListView(databaseHelper);
+                et_dishName.setText("");
+                et_dishDescription.setText("");
+                sw_isFavorite.setChecked(false);
             }
         });
 

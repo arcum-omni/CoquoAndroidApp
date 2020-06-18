@@ -65,6 +65,9 @@ public class IngredientsFragment extends Fragment {
                 }
 
                 PopulateIngredientsListView(databaseHelper);
+                et_ingredientName.setText("");
+                et_ingredientDescription.setText("");
+                sw_inPantry.setChecked(false);
             }
         });
 
