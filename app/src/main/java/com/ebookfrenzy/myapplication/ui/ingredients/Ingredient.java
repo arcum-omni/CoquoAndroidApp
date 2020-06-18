@@ -29,38 +29,38 @@ public class Ingredient {
         inPantry = inStock;
     }
 
-    //Getters
-    public String getIngredientDescription() {
-        return IngredientDescription;
-    }
-
-    public void setIngredientDescription(String ingredientDescription) {
-        IngredientDescription = ingredientDescription;
-    }
-
-    public boolean isInPantry() {
-        return inPantry;
-    }
-
-    public void setInPantry(boolean inPantry) {
-        this.inPantry = inPantry;
-    }
-
-    // Setters
+    // Getters
     public int getIngredientID() {
         return IngredientID;
-    }
-
-    public void setIngredientID(int ingredientID) {
-        IngredientID = ingredientID;
     }
 
     public String getIngredientName() {
         return IngredientName;
     }
 
+    public String getIngredientDescription() {
+        return IngredientDescription;
+    }
+
+    public boolean isInPantry() {
+        return inPantry;
+    }
+
+    // Setters
+    public void setIngredientID(int ingredientID) {
+        IngredientID = ingredientID;
+    }
+
     public void setIngredientName(String ingredientName) {
         IngredientName = ingredientName;
+    }
+
+    public void setIngredientDescription(String ingredientDescription) {
+        IngredientDescription = ingredientDescription;
+    }
+
+    public void setInPantry(boolean inPantry) {
+        this.inPantry = inPantry;
     }
 
     // To String Method
